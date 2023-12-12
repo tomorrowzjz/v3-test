@@ -1,16 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div v-for="item in arr" :key="item">
+    {{ item }}
+  </div>
+  <button @click="test">test</button>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+<script setup>
+import { ref } from 'vue';
+let arr = ref(['a','b','c','d','e','f'])
+function test() {
+  // arr.value = ['d','e','b','c','a','f']
+  arr.value = arr.value.reverse()
 }
 </script>
 
